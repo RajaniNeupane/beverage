@@ -1,0 +1,74 @@
+
+from django.urls import path
+
+from .views import (
+    MachineListAPIView,
+    MachineDetailAPIView,
+    WaterOptionListAPIView,
+    ContainerTypeListAPIView,
+    InventoryListAPIView,
+    OrderListAPIView,
+    PaymentListAPIView,
+    OrderCreateAPIView,
+    PaymentInitiateAPIView,
+    PaymentVerifyAPIView,
+    EsewaReturnAPIView,
+)
+
+urlpatterns = [
+    path(
+        "machines/",
+        MachineListAPIView.as_view(),
+        name="machine-list",
+    ),
+    path(
+        "machines/<int:pk>/",
+        MachineDetailAPIView.as_view(),
+        name="machine-detail",
+    ),
+    path(
+        "orders/",
+        OrderCreateAPIView.as_view(),
+        name="order-create",
+    ),
+    path(
+        "payments/initiate/",
+        PaymentInitiateAPIView.as_view(),
+        name="payment-initiate",
+    ),
+    path(
+        "payments/verify/",
+        PaymentVerifyAPIView.as_view(),
+        name="payment-verify",
+    ),
+    path(
+        "payments/esewa/return/",
+        EsewaReturnAPIView.as_view(),
+        name="esewa-return",
+    ),
+    path(
+    "water-options/",
+    WaterOptionListAPIView.as_view(),
+    name="water-option-list",
+),
+path(
+    "container-types/",
+    ContainerTypeListAPIView.as_view(),
+    name="container-type-list",
+),
+path(
+    "inventory/",
+    InventoryListAPIView.as_view(),
+    name="inventory-list",
+),
+path(
+    "orders/list/",
+    OrderListAPIView.as_view(),
+    name="order-list",
+),
+path(
+    "payments/list/",
+    PaymentListAPIView.as_view(),
+    name="payment-list",
+),
+]

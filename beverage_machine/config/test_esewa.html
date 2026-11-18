@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>eSewa Sandbox Test</title>
+</head>
+<body>
+    <h2>Water Machine - eSewa Test Payment</h2>
+    <p>Amount: Rs. 8.00</p>
+
+    <form
+        action="https://rc-epay.esewa.com.np/api/epay/main/v2/form"
+        method="POST">
+
+        <input type="hidden" name="amount" value="8.00">
+        <input type="hidden" name="tax_amount" value="0">
+        <input type="hidden" name="total_amount" value="8.00">
+
+        <input type="hidden" name="transaction_uuid"
+        value="7f52218b-a374-41fe-8774-bd5ce99514f2">
+
+        <input type="hidden" name="product_code" value="EPAYTEST">
+        <input type="hidden" name="product_service_charge" value="0">
+        <input type="hidden" name="product_delivery_charge" value="0">
+
+        <input type="hidden" name="success_url"
+        value="http://127.0.0.1:8000/api/payments/esewa/return/">
+
+        <input type="hidden" name="failure_url"
+        value="http://127.0.0.1:8000/api/payments/esewa/return/">
+
+        <input type="hidden" name="signed_field_names"
+        value="total_amount,transaction_uuid,product_code">
+
+        <input type="hidden" name="signature"
+        value="VVsAINlV9B2ZLt2J1x5RdVDnQF8J7Ee6Kup86NdQVDc=">
+
+        <button type="submit">Pay Rs. 8 with eSewa Sandbox</button>
+    </form>
+</body>
+</html>
